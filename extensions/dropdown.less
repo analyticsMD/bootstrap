@@ -1,0 +1,40 @@
+// Extends Bootstrap's default dropdown.
+// Remember to add .dropdown-extended if you want the benefits of most of this class
+// Nested coding style should follow the guideline here:
+// http://lesscss.org/
+
+// EXTENSIONS
+//
+// These styles require .dropdown-extended to
+// be added to any container with .dropdown class
+// ---------------------------------------------
+.dropdown-menu {
+	&.dropdown-extended 	{ .border-radius(1px);
+		&.with-images a		{ padding-left: 7px; }
+	}
+	img, a 					{ vertical-align: top; }
+	img 					{ width: @baseFontSize * 1.5;
+							  height: @baseFontSize * 1.5;
+							  margin-right: @iconMargin; }
+	a 						{ cursor: pointer; }
+}
+
+// NATIVE
+//
+// Don't require .dropdown-extended
+// --------------------------------
+.dropright {
+	.caret 			{ 	border-top: 0;
+						border-right: 4px solid @black;
+	}
+	// make the dropdown menu same level as its parent
+	.dropdown-menu  { 	top: auto;
+						left: 100%;
+						margin-left: 1px;
+		// we have to override 2 color styles set by Bootstrap default
+		&.inverted 	{ 	background: @grayDark;
+						color: @white;
+			a 		{ 	color: @white; }
+		}
+	}
+}

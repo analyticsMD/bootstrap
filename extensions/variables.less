@@ -1,0 +1,99 @@
+// Global Variables on top of Bootstrap's
+// You may but try not to override Bootstrap's default variables
+// (instead, make modifications inside less/variables.less)
+
+// Spacing (margins, padding, etc)
+@iconMargin:		                    8px;
+
+// Navbar
+// ----------------------
+@navbarPadding:                     2px;
+@iconSize:                          24px;
+
+@navItemSize:                       75px;
+@navIconSize:                       30px;
+@navIconColor:                      @white;
+
+// Sidebar
+// ----------------------
+
+@sidebarWidth:							75px;
+@sidebarBackground:						#1C2326;
+@sidebarShadow: 						inset 0px 0px 1px 0px rgba(0,0,0,.5);
+@sidebarActiveBorder:					1px solid darken(@sidebarBackground, 5%);
+
+@sidebarText:							@white;
+
+@sidebarLinkColor: 						#777;
+@sidebarLinkColorHover:					darken(#4AB6C6, 5%);
+@sidebarLinkColorActive:				#777;
+
+@sidebarInverseBackground:		 		@gray;
+
+@sidebarInverseText:                    @gray;
+@sidebarInverseLinkColor:				@gray;
+@sidebarInverseLinkColorHover:			@white;
+@sidebarInverseLinkColorActive:			@sidebarInverseLinkColorHover;
+@sidebarInverseLinkBackgroundHover:		transparent;
+@sidebarInverseLinkBackgroundActive:	@sidebarInverseBackground;
+
+@sidebarInverseSearchBackground:        lighten(@sidebarInverseBackground, 25%);
+@sidebarInverseSearchBackgroundFocus:   @white;
+@sidebarInverseSearchBorder:            @sidebarInverseBackground;
+@sidebarInverseSearchPlaceholderColor:  #ccc;
+
+@sidebarInverseBrandColor:              @sidebarInverseLinkColor;
+
+@sidebarDividerColor:				 	lighten(@sidebarBackground, 5%);
+@sidebarDividerMargin:					@sidebarWidth * 0.15;
+
+// Z-index Supplemental List
+// --------------------------
+@zindexFixedSidebar:		1000;	// above tooltips but below fixed sidebars.
+
+// Color Palette
+// --------------------------
+
+// Metro UI default colors
+@metroOrange:       #CB513A;
+@metroBlue:         #0099cc;
+@metroBlueDark:     #006699;
+@metroBrown:        #A05000;
+@metroGreen:        #70CA8D;
+@metroLime:         #BACB3D;
+@metroMagenta:      #FF0097;
+@metroPurple:       #7F809D;
+@metroTeal:         #00ABA9;
+@metroGrayTeal:     #526262;
+@metroGrayTealLight: #6F9790;
+@metroGrayTealDark: darken(@metroGrayTealLight, 25%);
+@metroRed:          #CC4F56;
+@metroGray:         #4D5357;
+@metroGrayLight:    #C1BBBE;
+@metroLightGray:    #dddddd;
+
+// Storm color palette - after IanStormTaylor
+@stormRose:         #BF6556;
+@stormViolet:       #665269;
+@stormYellow:       #F7BE43;
+@stormGreen:        #54B876;
+@stormTeal:         #427E81;
+@stormLime:         #BFCE36;
+@stormOrange:       #D77538;
+
+@stormLightYellow:  lighten(@stormYellow, 25%);
+
+// Typography
+// --------------------------
+@segoeFontFamily:           "Segoe UI", "Segoe WP", "Helvetica Neue", 'RobotoRegular', sans-serif;
+@segoeLightFontFamily:      "Segoe UI Light", "Helvetica Neue", 'RobotoLight', "Segoe UI", "Segoe WP", sans-serif;
+
+@metroBaseFontFamily:       @segoeFontFamily;
+@metroBaseFontSize:         14px;
+@metroBaseLineHeight:       20px;   // same as Bootstrap's
+
+// Tiles
+// --------------------------
+@tileLargeFont:     18px;
+@tileSmallFont:     12px;
+@tileRowHeight:     @tileLargeFont * 3;

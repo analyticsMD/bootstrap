@@ -1,0 +1,79 @@
+//
+//
+// SIDEBAR
+// is Bootstrap's Navbar on the side.
+//
+// The sidebar is meant to be generic and multiple
+// ones may be displayed in an app.
+// e.g. it can mimic the FB mobile web app's sidebar.
+//
+// Nested Coding style should follow the guideline here:
+// http://lesscss.org/
+//
+
+// Base and Wrapper
+// -----------------------
+.sidebar {
+	overflow: visible;
+	height: 100%;
+	color: @sidebarText;
+
+	// Fix for IE7's bad z-indexing so dropdowns don't appear below content that follows the navbar
+  	*position: relative;
+  	*z-index: 2;
+}
+
+// Inner wrapper for background and shadow fx.
+.sidebar-inner 		{	margin: 0;
+						width: @sidebarWidth;
+						height: 100%;
+						background: @sidebarBackground;
+						.box-shadow(@sidebarShadow);
+						z-index: @zindexFixedNavbar;
+						.clearfix();	// prevent float from breaking sidebar
+						list-style: none;
+
+	> li > a		{ 	opacity: 0.5; }
+	> li > a:hover  { 	opacity: 1; background-color: #000;}
+
+	.icon 			{	position: relative;
+						display: block;
+						width: @sidebarWidth;
+						height: @sidebarWidth * 0.95;
+						line-height: @baseLineHeight;
+						margin: 0;
+						border-top: 1px solid transparent;
+						border-bottom: 1px solid transparent;
+	}
+
+	.icon:hover,
+	.active 		{
+						border-top: @sidebarActiveBorder;
+						border-bottom: @sidebarActiveBorder;
+					}
+
+	.active			{  	background: @sidebarLinkColorHover; }
+
+	.divider		{ 	width: @sidebarWidth * 0.75;
+						margin-left: @sidebarDividerMargin;
+						margin-right: @sidebarDividerMargin;
+						margin-top: @sidebarDividerMargin;
+						margin-bottom: @sidebarDividerMargin;
+						border-top: 2px solid @sidebarDividerColor;
+						border-bottom: 2px solid lighten(@sidebarDividerColor, 15%); }
+
+	.dropright 		{	top: 0;	left: 100%; }
+}
+
+// width is auto for default container.
+// reset it for fixed sidebar
+.sidebar .container { height: auto; }
+
+// Fixed sidebar
+// ------------------------
+.sidebar-fixed 		{	position: fixed;
+						top: 0;
+						left: 0;
+						z-index: @zindexFixedSidebar;
+}
+

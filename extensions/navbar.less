@@ -1,0 +1,53 @@
+.navbar-extended {
+	a, img {
+		vertical-align: middle;
+	}
+}
+.navbar-large-font {
+	font-size: @baseFontSize * 1.5;
+}
+.dropdown.open {
+	.non-active {
+		background: transparent !important;
+	}
+}
+
+@media (max-width: 768px) {
+	.navbar-inner {
+		padding-left: 0 !important;
+	}
+}
+
+.navitem {
+	height: @navItemSize;
+	width: @navItemSize;
+	cursor: pointer;
+
+	a.icon-button {
+		display: block;
+		padding: 0;
+		width: 100%;
+		height: 100%;
+
+		i, .text-replacement {
+			display: block;
+			margin: auto;
+			padding: 0;
+			position: relative;
+			top: (@navItemSize - @navIconSize) / 2;
+			font-size: @navIconSize;
+			color: @navIconColor;
+		}
+
+		// 1px type difference, but make them seem more centered.
+		i {
+			line-height: @navIconSize;
+		}
+	}
+}
+
+// Sidebar decor
+
+.sidebar-nav {
+	.nav {}
+}
