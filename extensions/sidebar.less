@@ -1,14 +1,7 @@
 //
-//
 // SIDEBAR
 // is Bootstrap's Navbar on the side.
-//
-// The sidebar is meant to be generic and multiple
-// ones may be displayed in an app.
-// e.g. it can mimic the FB mobile web app's sidebar.
-//
-// Nested Coding style should follow the guideline here:
-// http://lesscss.org/
+// Meant to be stylistically compatible
 //
 
 // Base and Wrapper
@@ -16,53 +9,92 @@
 .sidebar {
 	overflow: visible;
 	height: 100%;
-	color: @sidebarText;
 
-	// Fix for IE7's bad z-indexing so dropdowns don't appear below content that follows the navbar
-  	*position: relative;
-  	*z-index: 2;
+	// Fix for IE7's bad z-indexing so dropdowns don't appear
+	// below content that follows the navbar
+	*position: relative;
+	*z-index: 2;
 }
 
 // Inner wrapper for background and shadow fx.
-.sidebar-inner 		{	margin: 0;
-						width: @sidebarWidth;
-						height: 100%;
-						background: @sidebarBackground;
-						.box-shadow(@sidebarShadow);
-						z-index: @zindexFixedNavbar;
-						.clearfix();	// prevent float from breaking sidebar
-						list-style: none;
+.sidebar-inner {
+	margin: 0;
+	width: @sidebarWidth;
+	height: 100%;
+	background: @sidebarBackground;
+	z-index: @zindexFixedNavbar;
+	.box-shadow(@sidebarShadow);
+	// prevent float from breaking sidebar
+	.clearfix();
 
-	> li > a		{ 	opacity: 0.5; }
-	> li > a:hover  { 	opacity: 1; background-color: #000;}
-
-	.icon 			{	position: relative;
-						display: block;
-						width: @sidebarWidth;
-						height: @sidebarWidth * 0.95;
-						line-height: @baseLineHeight;
-						margin: 0;
-						border-top: 1px solid transparent;
-						border-bottom: 1px solid transparent;
+	.divider {
+		width: @sidebarWidth;
+		margin-left: @sidebarDividerMargin;
+		margin-right: @sidebarDividerMargin;
+		margin-top: @sidebarDividerMargin;
+		margin-bottom: @sidebarDividerMargin;
+		border-top: 2px solid @sidebarDividerColor;
+		border-bottom: 2px solid lighten(@sidebarDividerColor, 15%);
 	}
 
-	.icon:hover,
-	.active 		{
-						border-top: @sidebarActiveBorder;
-						border-bottom: @sidebarActiveBorder;
-					}
+	.dropright { top: 0;	left: 100%; }
 
-	.active			{  	background: @sidebarLinkColorHover; }
+	.navitem {
+		height: @navItemHeight;
+		width: @navItemWidth;
+		cursor: pointer;
+		opacity: 0.5;
 
-	.divider		{ 	width: @sidebarWidth * 0.75;
-						margin-left: @sidebarDividerMargin;
-						margin-right: @sidebarDividerMargin;
-						margin-top: @sidebarDividerMargin;
-						margin-bottom: @sidebarDividerMargin;
-						border-top: 2px solid @sidebarDividerColor;
-						border-bottom: 2px solid lighten(@sidebarDividerColor, 15%); }
+		// Hover
+		&:hover {
+			opacity: 1;
+			i[class^="icon-"] { color: @sidebarIconColorHover; }
+			i.name { color: @sidebarTextColorHover; }
+		}
 
-	.dropright 		{	top: 0;	left: 100%; }
+		// Active
+		&.active {
+			opacity: 1;
+			// background: @sidebarActiveBackground;
+			i {
+				&.name { color: @sidebarTextColorActive;}
+				&[class^="icon-"]	{ color: @sidebarIconColorActive; }
+			}
+		}
+
+		// Inner <a>
+		.icon-button {
+			display: block;
+			margin-top: 0; // override <a> icons that have margin-top -4px
+			padding: 0;
+			width: 100%;
+			height: 100%;
+
+			// Image + Name <i>
+			i, .i-text-replaced {
+				display: block;
+				margin: auto;
+				padding: 0;
+				position: relative;
+				top: (@navItemSize - @navIconSize) / 4;
+				color: @sidebarIconColor;
+
+				&.name {
+					font-family: @segoeLightFontFamily;
+					font-size: @navItemFontSize;
+					font-style: normal;
+					font-weight: bold;
+				}
+
+				&[class^="icon-"]	{
+					font-size: @navIconSize;
+				}
+			}
+
+			// 1px type difference, but make them seem more centered.
+			i { line-height: @navIconSize; }
+		}
+	}
 }
 
 // width is auto for default container.
@@ -71,9 +103,9 @@
 
 // Fixed sidebar
 // ------------------------
-.sidebar-fixed 		{	position: fixed;
-						top: 0;
-						left: 0;
-						z-index: @zindexFixedSidebar;
+.sidebar-fixed {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: @zindexFixedSidebar;
 }
-

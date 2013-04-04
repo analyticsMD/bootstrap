@@ -9,32 +9,55 @@
 // be added to any container with .dropdown class
 // ---------------------------------------------
 .dropdown-menu {
-	&.dropdown-extended 	{ .border-radius(1px);
-		&.with-images a		{ padding-left: 7px; }
+	&.dropdown-extended { .border-radius(1px);
+		&.with-images a	{ padding-left: 7px; }
 	}
-	img, a 					{ vertical-align: top; }
-	img 					{ width: @baseFontSize * 1.5;
-							  height: @baseFontSize * 1.5;
-							  margin-right: @iconMargin; }
-	a 						{ cursor: pointer; }
+	img, a 	{ vertical-align: top; }
+	img {
+		width: @baseFontSize * 1.5;
+	  height: @baseFontSize * 1.5;
+	  margin-right: @iconMargin;
+	}
+	a { cursor: pointer; }
+
+	.title > a { font-variant: small-caps; }
+
+	// nested ul's. Give dropdown
+	// stylings to nested ul's
+  > div > ul > li > a {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: normal;
+    line-height: @baseLineHeight;
+    color: @dropdownLinkColor;
+    white-space: nowrap;
+  }
+
+  [class^="span"] {
+    margin: 0;
+  }
 }
 
 // NATIVE
 //
-// Don't require .dropdown-extended
+// Doesn't require .dropdown-extended
 // --------------------------------
 .dropright {
-	.caret 			{ 	border-top: 0;
-						border-right: 4px solid @black;
+	.caret {
+		border-top: 0;
+		border-right: 4px solid @black;
 	}
 	// make the dropdown menu same level as its parent
-	.dropdown-menu  { 	top: auto;
-						left: 100%;
-						margin-left: 1px;
+	.dropdown-menu {
+		top: auto;
+		left: 100%;
+		margin-left: 1px;
 		// we have to override 2 color styles set by Bootstrap default
-		&.inverted 	{ 	background: @grayDark;
-						color: @white;
-			a 		{ 	color: @white; }
+		&.inverted {
+			background: @grayDark;
+			color: @white;
+			a { color: @white; }
 		}
 	}
 }
