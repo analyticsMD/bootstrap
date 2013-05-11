@@ -5,7 +5,8 @@
 
 // TABLETS AND BELOW
 // -----------------
-@media (max-width: @navbarCollapseWidth) {
+@navbarResponsiveMaxWidth: @navbarCollapseWidth + @sidebarWidth;
+@media (max-width: @navbarResponsiveMaxWidth) {
 
   // UNFIX THE TOPBAR
   // ----------------
@@ -116,8 +117,8 @@
     .border-radius(0);
     .box-shadow(none);
   }
-  .nav-collapse .open > .dropdown-menu { 
-    display: block; 
+  .nav-collapse .open > .dropdown-menu {
+    display: block;
   }
 
   .nav-collapse .dropdown-menu:before,

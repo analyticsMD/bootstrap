@@ -2,8 +2,9 @@
 // Responsive: Tablet to desktop
 // --------------------------------------------------
 
-
-@media (min-width: 768px) and (max-width: 979px) {
+@tabletMinWidth: 768px + @sidebarWidth;
+@tabletMaxWidth: 979px + @sidebarWidth;
+@media (min-width: @tabletMinWidth) and (max-width: @tabletMaxWidth) {
 
   // Fixed grid
   #grid > .core(@gridColumnWidth768, @gridGutterWidth768);
