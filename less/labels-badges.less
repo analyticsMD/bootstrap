@@ -52,8 +52,8 @@ a {
 .label,
 .badge {
   // Important (red)
-  &-important         { background-color: @errorText; }
-  &-important[href]   { background-color: darken(@errorText, 10%); }
+  &-important         { background-color: lighten(@googleRed, 1%); }
+  &-important[href]   { background-color: lighten(@googleRed, 1%); }
   // Warnings (orange)
   &-warning           { background-color: @orange; }
   &-warning[href]     { background-color: darken(@orange, 10%); }
